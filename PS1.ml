@@ -44,25 +44,25 @@ let rec powerset (lst: int list) :int list list =
 
 (*Problem 4*)
 let rec str_to_list (str :string) :char list=
-match str with
-""->[]
-|_-> (String.get str 0)::(str_to_list (String sub 1 ((String.length str)-1)))
+	match str with
+	""->[]
+	|_-> (String.get str 0)::(str_to_list (String sub 1 ((String.length str)-1)))
 
 let rec char_to_str_list (lst :char list) :string list=
-match lst with
-[]->[]
-|[x]-> [Char.escaped x]
-|h::t -> (Char.escaped h) :: char_to_str_list t
+	match lst with
+	[]->[]
+	|[x]-> [Char.escaped x]
+	|h::t -> (Char.escaped h) :: char_to_str_list t
 
 let rec list_to_str (lst :string list) :string =
-match lst with 
-[]->""
-|[x]->x
-|h::t-> h ^ list_to_str t
+	match lst with 
+	[]->""
+	|[x]->x
+	|h::t-> h ^ list_to_str t
 
 
 let rec rev_int (x:int) :int=
-let lst= char_to_str_list (str_to_list (string_of_int  x)) in
-match lst with 
-[x]-> int_of_string x
-|h::t-> if h ="-" then int_of_string (list_to_str ("-"::List.rev t)) else int_of_string(list_to_str(List.rev lst));;
+	let lst= char_to_str_list (str_to_list (string_of_int  x)) in
+	match lst with 
+	[x]-> int_of_string x
+	|h::t-> if h ="-" then int_of_string (list_to_str ("-"::List.rev t)) else int_of_string(list_to_str(List.rev lst));;
