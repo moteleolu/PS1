@@ -43,16 +43,10 @@ let rec powerset (lst: int list) :int list list =
 
 
 (*Problem 4*)
-let rec str_to_list (str :string) :char list=
+let rec str_to_list (str :string) :string list=
 	match str with
 	""->[]
-	| _-> (String.get str 0)::(str_to_list (String.sub str 1 ((String.length str)-1)))
-
-let rec char_to_str_list (lst :char list) :string list=
-	match lst with
-	[]->[]
-	|[x]-> [Char.escaped x]
-	|h::t -> (Char.escaped h) :: char_to_str_list t
+	| _-> (String.sub str 0 1)::(str_to_list (String.sub str 1 ((String.length str)-1)))
 
 let rec list_to_str (lst :string list) :string =
 	match lst with 
@@ -62,9 +56,9 @@ let rec list_to_str (lst :string list) :string =
 
 
 let rec rev_int (x:int) :int=
-	let lst= char_to_str_list (str_to_list (string_of_int  x)) in
+	let lst= str_to_list (string_of_int  x) in
 	match lst with 
 	[]-> 0
-	|[x]-> int_of_string x
+	|[r]-> int_of_string r
 	|h::t-> if h ="-" then int_of_string (list_to_str ("-"::List.rev t)) 
 	else int_of_string(list_to_str(List.rev lst))
