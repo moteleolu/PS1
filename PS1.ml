@@ -62,3 +62,23 @@ let rec rev_int (x:int) :int=
 	|[r]-> int_of_string r
 	|h::t-> if h ="-" then int_of_string (list_to_str ("-"::List.rev t)) 
 	else int_of_string(list_to_str(List.rev lst))
+	
+	
+(*Problem 6*)
+￼type numeral = I | V | X | L | C | D | M 
+ type roman = numeral list
+ let rec int_of_roman (r : roman) : int = let int_of_numeral = function
+| I -> 1
+| V -> 5
+| X -> 10
+| L -> 50
+| C -> 100
+| D -> 500
+| M -> 1000 in
+
+match r with 
+[]->0
+|[x]-> int_of_numeral x
+|h::t-> if h>= List.hd t then int_of_numeral h + int_of_roman(t)
+else (int_of_numeral (List.hd t)) - (int_of_numeral h) + (int_of_roman (List.tl t));;
+
