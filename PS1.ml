@@ -64,6 +64,22 @@ let rec rev_int (x:int) :int=
 	else int_of_string(list_to_str(List.rev lst))
 	
 	
+(*Problem 5*)
+let rec unflatten_helper ((k:int), (lst: 'a list), (counter:int), (sublist: 'a list)) : 'a list list =
+	match lst with
+	[] -> [sublist]
+	| h::t -> 
+		if ((float_of_int(counter/k) = (float_of_int(counter) /. float_of_int(k))) && counter > 0) then
+			sublist::unflattenhelper(k,List.tl lst, counter+1, [(List.hd lst)])
+		else
+			unflattenhelper(k,(List.tl lst), (counter+1), (sublist @ [(List.hd lst)]))
+	
+
+
+let unflatten ((k:int), (lst: 'a list)) :'a list list option =
+	if k <= 0 then None else Some (unflatten_helper(k,lst,0,[]))
+
+
 (*Problem 6*)
 ￼type numeral = I | V | X | L | C | D | M 
  type roman = numeral list
