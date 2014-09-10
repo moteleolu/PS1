@@ -65,19 +65,19 @@ let rec rev_int (x:int) :int=
 	
 	
 (*Problem 5*)
-let rec unflatten_helper ((k:int), (lst: 'a list), (counter:int), (sublist: 'a list)) : 'a list list =
+let rec unflatten_helper (k:int) (lst: 'a list) (counter:int) (sublist: 'a list) : 'a list list =
 	match lst with
 	[] -> [sublist]
 	| h::t -> 
 		if ((float_of_int(counter/k) = (float_of_int(counter) /. float_of_int(k))) && counter > 0) then
-			sublist::unflatten_helper(k,List.tl lst, counter+1, [(List.hd lst)])
+			sublist::(unflatten_helper k (List.tl lst) (counter+1) [(List.hd lst)])
 		else
-			unflatten_helper(k,(List.tl lst), (counter+1), (sublist @ [(List.hd lst)]))
+			unflatten_helper k (List.tl lst) (counter+1) (sublist @ [(List.hd lst)])
 	
 
 
 let unflatten (k:int) (lst: 'a list) :'a list list option =
-	if k <= 0 then None else Some (unflatten_helper(k,lst,0,[]))
+	if k <= 0 then None else Some (unflatten_helper k lst 0 [])
 
 
 (*Problem 6*)
