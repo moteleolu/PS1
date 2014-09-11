@@ -96,5 +96,5 @@ match r with
 []->0
 |[x]-> int_of_numeral x
 |h::t-> if h>= List.hd t then int_of_numeral h + int_of_roman(t)
-else (int_of_numeral (List.hd t)) - (int_of_numeral h) + (int_of_roman (List.tl t));;
+else (int_of_numeral (List.hd t)) - (int_of_numeral h) + (int_of_roman (List.tl t))
 
