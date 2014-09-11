@@ -37,50 +37,51 @@ TEST_UNIT "is_mon_inc5" =
 
 (*Problem 2*)
 TEST_UNIT "is_unimodal_test"=
-let p= is_unimodal [1;2;3;4;5;4;3;2] in
-let s= true in
-assert_true (p=s)
+	let p= is_unimodal [1;2;3;4;5;4;3;2] in
+	let s= true in
+	assert_true (p=s)
 
 TEST_UNIT "is_unimodal_test_2"=
-let p= is_unimodal [1;3;5;7;5;6] in
-let s= false in
-assert_true (p=s)
+	let p= is_unimodal [1;3;5;7;5;6] in
+	let s= false in
+	assert_true (p=s)
 
 TEST_UNIT "is_unimodal_test_3"=
-let p= is_unimodal [] in
-let s= true in
-assert_true (p=s)
+	let p= is_unimodal [] in
+	let s= true in
+	assert_true (p=s)
 
 TEST_UNIT "is_unimodal_test4"=
-let p= is_unimodal [1;1;1] in
-let s= true in
-assert_true (p=s)
+	let p= is_unimodal [1;1;1] in
+	let s= true in
+	assert_true (p=s)
 
 TEST_UNIT "is_unimodal_test5"=
-let p= is_unimodal [1;2] in
-let s= true in
-assert_true (p=s)
+	let p= is_unimodal [1;2] in
+	let s= true in
+	assert_true (p=s)
 
 TEST_UNIT "is_unimodal_test6"=
-let p= is_unimodal [2;1;(-1)] in
-let s= true in
-assert_true (p=s)
+	let p= is_unimodal [2;1;(-1)] in
+	let s= true in
+	assert_true (p=s)
 
 (*Problem 3*)
 TEST_UNIT "powerset_test1"=
-let p= powerset [1;2;3;4] in
-let s= [[1; 2; 3]; [2; 3]; [1; 3]; [3]; [1; 2]; [2]; [1]; []; [1; 2; 3; 4];[2; 3; 4]; [1; 3; 4]; [3; 4]; [1; 2; 4]; [2; 4]; [1; 4]; [4]] in
-assert_true (p=s)
+	let p= powerset [1;2;3;4] in
+	let s= [[1; 2; 3]; [2; 3]; [1; 3]; [3]; [1; 2]; [2]; [1]; []; [1; 2; 3; 4];
+	[2; 3; 4]; [1; 3; 4]; [3; 4]; [1; 2; 4]; [2; 4]; [1; 4]; [4]] in
+	assert_true (p=s)
 
 TEST_UNIT "powerset_test2"=
-let p= powerset [] in
-let s= [] in
-assert_true (p=s)
+	let p= powerset [] in
+	let s= [] in
+	assert_true (p=s)
 
 TEST_UNIT "powerset_test3"=
-let p= powerset [1] in
-let s= [[]; [1]] in
-assert_true (p=s)
+	let p= powerset [1] in
+	let s= [[]; [1]] in
+	assert_true (p=s)
 
 (*Problem 4*)
 
@@ -135,16 +136,16 @@ TEST_UNIT "unflatten4" =
 
 (*Problem 6*)
 TEST_UNIT "int_of_roman_test1"=
-let p= int_of_roman [I;X] in
-let s= 9 in
-assert_true (p=s)
+	let p= int_of_roman [I;X] in
+	let s= 9 in
+	assert_true (p=s)
 
 TEST_UNIT "int_of_roman_test2"=
-let p= int_of_roman [M;M;X;I;V] in
-let s= 2014 in
-assert_true (p=s)
+	let p= int_of_roman [M;M;X;I;V] in
+	let s= 2014 in
+	assert_true (p=s)
 
 TEST_UNIT "int_of_roman_test3"=
-let p= int_of_roman [] in
-let s= 0 in
-assert_true (p=s)
+	let p= int_of_roman [] in
+	let s= 0 in
+	assert_true (p=s)
