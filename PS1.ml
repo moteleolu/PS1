@@ -82,8 +82,8 @@ let unflatten (k:int) (lst: 'a list) :'a list list option =
 
 (*Problem 6*)
 ￼type numeral = I | V | X | L | C | D | M 
- type roman = numeral list
- let rec int_of_roman (r : roman) : int = let int_of_numeral = function
+type roman = numeral list
+let rec int_of_roman (r : roman) : int = let int_of_numeral = function
 | I -> 1
 | V -> 5
 | X -> 10
